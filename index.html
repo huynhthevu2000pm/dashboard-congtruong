@@ -1,31 +1,119 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Công Trường</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Công Trường</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
-<h2>📊 Dashboard Công Trường</h2>
+  <!-- TRANG CHỦ -->
+  <section id="homePage" class="page active">
+    <div class="home-overlay">
+      <h1 class="main-title">BÁO CÁO DỰ ÁN SÂN BAY LONG THÀNH GÓI THẦU 11.5</h1>
 
-<div class="buttons">
-    <button onclick="filterData('ALL')">ALL</button>
-    <button onclick="filterData('CC1')">Nguyên cần Vũ giúp gì không</button>
-    <button onclick="filterData('CTD')">CLC</button>
-    <button onclick="filterData('FECON')">CC14</button>
-</div>
+      <div class="logo-box">
+        <img src="logo-cc1.png" alt="Logo CC1" class="logo-img" />
+      </div>
 
-<div class="cards">
-    <div class="card">👷 Tổng nhân lực: <span id="manpower">0</span></div>
-    <div class="card">📈 Tiến độ: <span id="progress">0%</span></div>
-</div>
+      <div class="menu-buttons">
+        <button class="menu-btn" onclick="showPage('laborPage')">Nhân lực</button>
+        <button class="menu-btn" onclick="showPage('structurePage')">Tiến độ kết cấu</button>
+        <button class="menu-btn" onclick="showPage('finishPage')">Tiến độ hoàn thiện</button>
+      </div>
 
-<canvas id="chart"></canvas>
+      <div class="bg-note">Khu này là nền phối cảnh nhà xe gói 11.5</div>
+    </div>
+  </section>
 
-<script src="app.js"></script>
+  <!-- TRANG NHÂN LỰC -->
+  <section id="laborPage" class="page">
+    <div class="report-header">
+      <button class="back-btn" onclick="showPage('homePage')">← Quay lại</button>
+      <h1>BÁO CÁO NHÂN LỰC</h1>
+    </div>
 
+    <div class="toolbar">
+      <div class="toolbar-left">
+        👷 Tổng nhân lực: <span id="totalLabor">0</span>
+      </div>
+
+      <div class="toolbar-center">
+        <div class="slider-title">THANH KÉO THỜI GIAN</div>
+        <input type="range" id="timeRange" min="1" max="1" value="1" />
+      </div>
+
+      <div class="toolbar-right">
+        📈 Tiến độ: <span id="progressCC1Top">0%</span>
+      </div>
+    </div>
+
+    <div class="report-grid">
+
+      <div class="chart-row">
+        <div class="percent-box" id="percentVQC">0%</div>
+
+        <div class="chart-card">
+          <h3>Biểu đồ nhân lực VQC</h3>
+          <canvas id="chartVQC"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Biểu đồ nhân lực CLC</h3>
+          <canvas id="chartCLC"></canvas>
+        </div>
+
+        <div class="percent-box" id="percentCLC">0%</div>
+      </div>
+
+      <div class="chart-row">
+        <div class="percent-box" id="percentCC14">0%</div>
+
+        <div class="chart-card">
+          <h3>Biểu đồ nhân lực CC14</h3>
+          <canvas id="chartCC14"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h3>Biểu đồ nhân lực AT</h3>
+          <canvas id="chartAT"></canvas>
+        </div>
+
+        <div class="percent-box" id="percentAT">0%</div>
+      </div>
+
+      <div class="chart-row total-row">
+        <div class="chart-card total-card">
+          <h3>Biểu đồ nhân lực CC1 (Tổng 4 nhà thầu)</h3>
+          <canvas id="chartCC1"></canvas>
+        </div>
+
+        <div class="percent-box total-percent" id="percentCC1">0%</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRANG TIẾN ĐỘ KẾT CẤU -->
+  <section id="structurePage" class="page">
+    <div class="report-header">
+      <button class="back-btn" onclick="showPage('homePage')">← Quay lại</button>
+      <h1>BÁO CÁO TIẾN ĐỘ KẾT CẤU</h1>
+    </div>
+    <div class="coming-soon">Đang làm tiếp...</div>
+  </section>
+
+  <!-- TRANG TIẾN ĐỘ HOÀN THIỆN -->
+  <section id="finishPage" class="page">
+    <div class="report-header">
+      <button class="back-btn" onclick="showPage('homePage')">← Quay lại</button>
+      <h1>BÁO CÁO TIẾN ĐỘ HOÀN THIỆN</h1>
+    </div>
+    <div class="coming-soon">Đang làm tiếp...</div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
