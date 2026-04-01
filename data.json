@@ -1,0 +1,20 @@
+[
+  {
+    "date": "01-Thg4",
+    "contractor": "CC1",
+    "manpower": 120,
+    "progress": 30
+  },
+  {
+    "date": "01-Thg4",
+    "contractor": "CTD",
+    "manpower": 90,
+    "progress": 25
+  },
+  {
+    "date": "01-Thg4",
+    "contractor": "FCN",
+    "manpower": 80,
+    "progress": 15
+  }
+]
